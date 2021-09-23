@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.Serializable;
+import com.sun.xml.bind.v2.ContextFactory;
 
 /**
  * Cloc report parser and the parsed file.
@@ -62,7 +63,7 @@ public class ClocReport implements Serializable {
      * @throws javax.xml.bind.JAXBException if a XML related error occurs
      */
     public static ClocReport parse(File file) throws JAXBException {
-        JAXBContext context = JAXBContext.newInstance(ClocReport.class);
+        JAXBContext context = ContextFactory.createContext(new Class[] {ClocReport.class}, null);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         return (ClocReport) unmarshaller.unmarshal(file);
     }

@@ -11,7 +11,7 @@
   <artifactId>sloccount</artifactId>
   <packaging>hpi</packaging>
   <name>Jenkins SLOCCount Plug-in</name>
-  <version>${revision}${changelist}</version>
+  <version>1.25</version>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin</url>
   <description>This plug-in generates the trend report for SLOCCount,
     an open source program which counts the number of lines of codes in over
@@ -47,11 +47,20 @@
   </contributors>
 
   <properties>
-      <revision>1.25</revision>
-      <changelist>-SNAPSHOT</changelist>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <jenkins.version>1.625.3</jenkins.version>
-      <java.level>7</java.level>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <jaxb.version>2.3.0</jaxb.version>
+    <jaxb2.maven.plugin.version>2.5.0</jaxb2.maven.plugin.version>
+    <java2html.version>5.0</java2html.version>
+    <junit.version>4.12</junit.version>
+    <mockito.version>1.8.5</mockito.version>
+    <dashboard.view.version>2.0</dashboard.view.version>
+    <jenkins.version>2.164</jenkins.version>
+    <pipeline.version>2.5</pipeline.version>
+    <!-- Be careful of upgrading this to later versions, cause pipeline plugins depend on this version. -->
+    <jackson2.version>2.10.3</jackson2.version>
+    <java.level>8</java.level>
   </properties>
 
   <dependencies>
@@ -60,6 +69,11 @@
       <artifactId>dashboard-view</artifactId>
       <version>2.0</version>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>jaxb</artifactId>
+      <version>${jaxb.version}</version>
     </dependency>
     <dependency>  
       <groupId>org.jenkins-ci.plugins.workflow</groupId>  
